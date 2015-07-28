@@ -1,0 +1,10 @@
+{
+  "name": "geoIssue",
+  "dependencies": {
+    "mongodb": "*"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node debug index.js"
+  }
+}
