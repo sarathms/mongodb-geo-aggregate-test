@@ -47,10 +47,11 @@ MongoClient.connect(url, function(err, db) {
 
     // Insert data
     if (insertNoise) {
-      for (var i=0; i<1050; i++) {
-        testData.push(testUser);
+      for (var i=0; i<100; i++) {
+        users.insert({name: "TestUser" + i, coordinates: testUser.coordinates});
       }
     }
+
     users.insert(testData, function (err, result) {
       console.log("Inserted all");
       users.createIndex({coordinates: "2dsphere"});
