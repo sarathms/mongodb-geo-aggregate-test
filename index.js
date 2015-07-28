@@ -93,7 +93,10 @@ function printResult(direction, docs) {
   console.log("*******");
   console.log("Search from " + direction + " Found " + docs.length + " users");
   docs.forEach(function (doc) {
-    console.log(doc.name + " (" + doc.dist + ") " + doc.coordinates);
+    if (doc.name.indexOf("Target User") === 0) {
+      console.log("Target User found");
+    }
+    // console.log(doc.name + " at [" + doc.coordinates + "] at distance" + doc.dist);
   });
   console.log("*******");
 }
