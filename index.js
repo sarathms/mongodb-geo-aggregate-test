@@ -1,9 +1,6 @@
 var mongo = require("mongodb");
 var MongoClient = require('mongodb').MongoClient;
 
-// var sarath = { "name" : "Sarath", "coordinates" : [ 76.8991642746301, 10.995842664395019 ] }
-// var Periyasamy ={ "name" : "Periyasamy", "coordinates" : [ 76.87591642746301, 10.825842664395019 ] }
-
 var testUser = {
   name: "Test User",
   coordinates: [ 76.9480533, 10.9987576 ]
@@ -90,8 +87,6 @@ function aggregationSearch (collection, radius, searchBy, callback) {
   ], function (err, docs) {
     printResult(searchBy.name, docs);
   });
-  // ---------- End Search ----------- //
-
 }
 
 function printResult(direction, docs) {
