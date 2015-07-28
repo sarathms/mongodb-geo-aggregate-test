@@ -45,17 +45,16 @@ MongoClient.connect(url, function(err, db) {
   users.drop(function (err, results) {
     console.log("Cleared DB: %s", results);
 
-    // Insert data
-    if (insertNoise) {
-      for (var i=0; i<100; i++) {
-        users.insert({name: "TestUser" + i, coordinates: testUser.coordinates});
-      }
-    }
-
     users.insert(testData, function (err, result) {
       console.log("Inserted all");
       users.createIndex({coordinates: "2dsphere"});
 
+      // Insert data
+      if (insertNoise) {
+        for (var i=0; i<100; i++) {
+          users.insert({name: "TestUser" + i, coordinates: testUser.coordinates});
+        }
+      }
 
       // Scenario 1:
       // Search for the Target from the east of the target
